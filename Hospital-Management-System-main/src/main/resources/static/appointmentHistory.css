@@ -1,0 +1,172 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the viewport */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: flex-start; /* Aligns to the top */
+    min-height: 100vh; /* Ensures the content is at least the full height of the viewport */
+    padding: 20px; /* Adds space around the edges */
+    overflow: auto; /* Allows scrolling if content exceeds the viewport */
+}
+
+/* Container Styling */
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Transparent white background for readability */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%; /* Ensures container is responsive */
+    overflow-x: auto; /* Ensures horizontal scrolling if the table exceeds screen width */
+}
+
+/* Heading Styling */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #07074d;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table Header Styling */
+th {
+    background-color: #1B1833;
+    color: #ffffff;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table Cell Styling */
+td {
+    padding: 12px;
+    text-align: left;
+    border-top: 1px solid #dde3ec;
+}
+
+/* Table Row Hover Effect */
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Form Label Styling */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Form Input and Select Styling */
+input[type="number"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #dde3ec;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Dropdown Select Styling */
+select {
+    background-color: #ffffff;
+    border: 1px solid #dde3ec;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dropdown Option Styling */
+option {
+    background-color: #07074d;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Dropdown Option Hover Effect */
+option:hover {
+    background-color: #0056b3;
+}
+
+/* Submit Button Styling */
+button {
+    background-color: #07074d;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Success or Error Message Styling */
+div p {
+    font-size: 14px;
+}
+
+/* Success Message Styling */
+div p[style*="color: green"] {
+    color: green;
+}
+
+/* Error Message Styling */
+div p[style*="color: red"] {
+    color: red;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="number"],
+    input[type="time"],
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

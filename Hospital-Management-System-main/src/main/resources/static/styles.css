@@ -1,0 +1,382 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #9F9ACD;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 15px 30px;
+    background-color: #1B1833;
+    color: white;
+}
+
+/* Logo Image */
+.logo-container {
+    width: fit-container;
+    text-align: center;
+    margin: 0px;
+}
+
+.logo-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Navbar */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #1B1833;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Dropdown Menu Styling */
+.navbar ul li {
+    position: relative;
+}
+
+.navbar ul li .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.navbar ul li:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    background-color: transparent;
+    padding: 10px 15px;
+    display: block;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+}
+
+/* Home Section */
+#home {
+    padding: 20px;
+}
+
+/* Home Content Layout */
+.home-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Block1 - Slider and Latest Updates Side by Side */
+.block1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+
+/* Slider */
+.slider {
+    width: 48%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    animation: slide-animation 9s infinite;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 30%;
+    height: auto;
+    display: block;
+}
+
+/* Slider Animation */
+@keyframes slide-animation {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(0); }
+    36% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-100%); }
+    69% { transform: translateX(-200%); }
+    99.99% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+/* Latest Updates */
+.latest-updates {
+    width: 48%;
+    background-color: #B7B1EC;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.latest-updates h3 {
+    margin-top: 0;
+}
+
+.update-content {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Director and Welcome to HMS Section */
+.info-block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #B7B1EC;
+}
+
+.director, .welcome-hms {
+    width: 48%;
+}
+
+.director img {
+    width: 60%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.director p {
+    text-align: left;
+}
+
+.welcome-hms p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+/* Director and Welcome to HMS Section */
+.director h3 {
+    text-decoration: underline;
+    padding-bottom: 10px; /* Optional, to add space between the text and the underline */
+}
+
+/* About Section */
+#about {
+    
+    padding: 20px;
+    margin-top: 30px;
+}
+
+#about h3 {
+	background-color: #1B1833;
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    padding: 3px;
+}
+
+#about p {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Location Section */
+#location {
+    
+    padding: 20px;
+    margin-top: 30px;
+}
+
+#location h3 {
+	background-color: #1B1833;
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    padding: 3px;
+}
+
+#location p {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+#contact {
+    
+    padding: 20px;
+    margin-top: 30px;
+}
+
+#contact h3 {
+	background-color: #1B1833;
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    padding: 3px;
+}
+
+#contact p {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Contact Form */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact form label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 80%;
+}
+
+#contact form input,
+#contact form textarea {
+	background-color:#B7B1EC;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+#contact form button {
+    background-color: #1B1833;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#contact form button:hover {
+    background-color: #0056b3;
+}
+
+/* Doctor Suggestion Chatbot Section */
+#doctor-chatbot {
+    
+    padding: 20px;
+    margin-top: 30px;
+}
+
+#doctor-chatbot h3 {
+	background-color:#1B1833;
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    padding: 3px;
+}
+
+#doctor-chatbot p {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Chatbot Textarea */
+#doctor-chatbot textarea {
+	background-color:#B7B1EC;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+#doctor-chatbot button {
+    background-color: #1B1833;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#doctor-chatbot button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Section (Optional) */
+footer {
+    background-color: #1B1833;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 16px;
+    margin: 0;
+}
+
+footer a {
+    color: #B7B1EC;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

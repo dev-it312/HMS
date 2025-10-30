@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+<div class="container">
+<h2>Feedback Form</h2>
+
+<form action="/submit" method="post">
+    <label for="doctorName">Doctor Name:</label>
+    <input type="text" id="doctorName" name="doctorName" required><br><br>
+
+    <label for="appointmentDate">Appointment Date:</label>
+    <input type="date" id="appointmentDate" name="appointmentDate" required><br><br>
+
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" required>
+        <option value="Bad">Bad</option>
+        <option value="Good">Good</option>
+        <option value="Better">Better</option>
+        <option value="Excellent">Excellent</option>
+    </select><br><br>
+
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" rows="5" cols="30"></textarea><br><br>
+
+    <button type="submit">Submit Feedback</button>
+</form>
+</div>
+</body>
+</html>

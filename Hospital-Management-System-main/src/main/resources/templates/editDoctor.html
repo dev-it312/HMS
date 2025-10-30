@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Doctor Information</title>
+    <link rel="stylesheet" href="update.css">
+</head>
+<body>
+    <div class="update-container">
+        <!-- Search Doctor -->
+        <h2>Search Doctor</h2>
+        <form action="/searchDoctor" method="GET">
+            <label for="search-doctor-id">Enter Doctor ID:</label>
+            <input type="number" id="search-doctor-id" name="id" placeholder="Doctor ID" required>
+            <button type="submit">Search</button>
+        </form>
+        
+        <!-- Error Message -->
+        <div th:if="${error}">
+            <p style="color: red;" th:text="${error}"></p>
+        </div>
+
+        <!-- Update Doctor Section -->
+        <div th:if="${doctor}">
+        	<br>
+            <h2>Update Doctor Information</h2>
+            <p>Current Doctor Details:</p>
+            <p>Name: <strong th:text="${doctor.name}"></strong></p>
+            <p>DOB: <strong th:text="${doctor.dob}"></strong></p>
+            <p>Email: <strong th:text="${doctor.email}"></strong></p>
+            <p>Qualification: <strong th:text="${doctor.qualification}"></strong></p>
+            <p>Specialisation: <strong th:text="${doctor.specialisation}"></strong></p>
+            <p>Years of Experience: <strong th:text="${doctor.yearsOfExperience}"></strong></p>
+            <p>Phone Number: <strong th:text="${doctor.phoneNumber}"></strong></p>
+            <p>Address: <strong th:text="${doctor.address}"></strong></p>
+            
+            <!-- Update Doctor Details -->
+            <h3>Update Doctor Details</h3>
+            <form action="/updateDoctor" method="POST">
+                <input type="hidden" name="doctor-id" th:value="${doctor.id}">
+                
+                <!-- Update Name -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" th:value="${doctor.name}">
+                
+                <!-- Update DOB -->
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" th:value="${doctor.dob}">
+                
+                <!-- Update Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:value="${doctor.email}">
+                
+                <!-- Update Qualification -->
+                <label for="qualification">Qualification:</label>
+                <input type="text" id="qualification" name="qualification" th:value="${doctor.qualification}">
+                
+                <!-- Update Specialisation -->
+                <label for="specialisation">Specialisation:</label>
+                <input type="text" id="specialisation" name="specialisation" th:value="${doctor.specialisation}">
+                
+                <!-- Update Years of Experience -->
+                <label for="years-of-experience">Years of Experience:</label>
+                <input type="number" id="years-of-experience" name="yearsOfExperience" th:value="${doctor.yearsOfExperience}">
+                
+                <!-- Update Phone Number -->
+                <label for="phone-number">Phone Number:</label>
+                <input type="text" id="phone-number" name="phoneNumber" th:value="${doctor.phoneNumber}">
+                
+                <!-- Update Address -->
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" th:value="${doctor.address}">
+                
+                <!-- Submit Update -->
+                <button type="submit">Update Doctor Information</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
