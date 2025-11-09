@@ -1,17 +1,14 @@
 package com.hms.services;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hms.entities.Admin;
 import com.hms.exceptions.EmailAlreadyUsedException;
-import com.hms.exceptions.InvalidEmailFormatException;
 import com.hms.repositories.AdminRepository;
-import com.hms.repositories.PatientRepository;
+//import com.hms.repositories.PatientRepository;
 
 @Service
 public class AdminServiceImplementation implements AdminService {
@@ -20,7 +17,9 @@ public class AdminServiceImplementation implements AdminService {
 	AdminRepository adminRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private EmailValidatorService emailValidatorService;
+    @Autowired
+    private PasswordService passwordService;
 	
 	// Method to get Admin by email (mailId)
     public Admin getAdminByMailId(String mailId) {
@@ -30,29 +29,26 @@ public class AdminServiceImplementation implements AdminService {
     // New method to check password with BCrypt
     public boolean checkPassword(Admin admin, String rawPassword) {
         if (admin == null || rawPassword == null) return false;
-        return passwordEncoder.matches(rawPassword, admin.getPassword());
+        return passwordService.matches(rawPassword, admin.getPassword());
     }
 
     // Méthode pour créer ou mettre à jour un admin avec hachage du mot de passe
     public Admin createOrUpdateAdmin(Admin admin) {
-        if (admin == null || admin.getPassword() == null) return null;
-        // Vérification du format de l'email
-        String email = admin.getMailId();
-        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-        if (email == null || !Pattern.matches(emailRegex, email)) {
-            throw new InvalidEmailFormatException("Vous devez saisir une adresse email valide");
+        if (admin == null || admin.getPassword() == null) {
+            throw new IllegalArgumentException("Admin ou mot de passe manquant");
         }
-        // Vérification unicité de l'email (en création uniquement)
-        Admin existing = adminRepository.findByMailId(email);
-        if (existing != null && (admin.getId() == null || !existing.getId().equals(admin.getId())) ) {
+        emailValidatorService.validate(admin.getMailId());
+        checkEmailUniqueness(admin);
+        admin.setPassword(passwordService.hashIfNeeded(admin.getPassword()));
+        return adminRepository.save(admin);
+    }
+
+    // Vérification de l'unicité de l'email
+    private void checkEmailUniqueness(Admin admin) {
+        Admin existing = adminRepository.findByMailId(admin.getMailId());
+        if (existing != null && (admin.getId() == null || !existing.getId().equals(admin.getId()))) {
             throw new EmailAlreadyUsedException("Email déjà utilisé");
         }
-        // Hachage du mot de passe uniquement s'il n'est pas déjà haché
-        String password = admin.getPassword();
-        if (!password.startsWith("$2a$") && !password.startsWith("$2b$") && !password.startsWith("$2y$")) {
-            admin.setPassword(passwordEncoder.encode(password));
-        }
-        return adminRepository.save(admin);
     }
 
     // Nouvelle méthode pour obtenir tous les admins
