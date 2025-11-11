@@ -10,6 +10,7 @@ public class PasswordService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // hash if needed (method to hash password only if it's not already hashed)
     public String hashIfNeeded(String password) {
         return switch (password) {
             case null -> null;
@@ -17,7 +18,8 @@ public class PasswordService {
             default -> passwordEncoder.encode(password);
         };
     }
-
+    
+    // control if rawPass matches hashed one
     public boolean matches(String rawPassword, String encodedPassword) {
         if (rawPassword == null || encodedPassword == null) return false;
         return passwordEncoder.matches(rawPassword, encodedPassword);
