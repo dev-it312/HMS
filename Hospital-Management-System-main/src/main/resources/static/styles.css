@@ -1,9 +1,10 @@
-/* General Styling */
+/* Charte graphique médicale - bleu-vert bloc opératoire (#09E8D9) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #9F9ACD;
+    background-color: #E6FCFA; /* fond très clair, ambiance médicale */
+    color: #1B1833;
 }
 
 /* Header */
@@ -13,21 +14,25 @@ header {
     justify-content: flex-start;
     align-items: flex-end;
     padding: 15px 30px;
-    background-color: #1B1833;
-    color: white;
+    background-color: #09E8D9; /* couleur dominante */
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(9,232,217,0.08);
 }
 
 /* Logo Image */
 .logo-container {
-    width: fit-container;
     text-align: center;
     margin: 0px;
+    background: #09E8D9;
+    padding: 10px 0;
 }
 
 .logo-image {
-    width: 100%;
+    max-width: 220px;
     height: auto;
-    display: block;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(9,232,217,0.12);
 }
 
 /* Navbar */
@@ -43,16 +48,19 @@ header {
 }
 
 .navbar ul li a {
-    color: white;
+    color: #1B1833; /* texte bleu foncé pour contraste */
     text-decoration: none;
     padding: 10px 15px;
-    background-color: #1B1833;
+    background-color: #19cfc7; /* cyan intermédiaire, moins foncé */
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(9,232,217,0.10);
 }
 
 .navbar ul li a:hover {
-    background-color: #0056b3;
+    background-color: #13b6b0; /* cyan légèrement plus foncé au survol */
+    color: #fff; /* texte blanc au survol pour contraste */
 }
 
 /* Dropdown Menu Styling */
@@ -66,10 +74,10 @@ header {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: #fff;
+    border: 1px solid #19cfc7;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(9,232,217,0.12);
     padding: 0;
     min-width: 150px;
     z-index: 10;
@@ -84,17 +92,18 @@ header {
 }
 
 .dropdown-menu li a {
-    color: #333;
+    color: #19cfc7; /* texte cyan intermédiaire */
     background-color: transparent;
     padding: 10px 15px;
     display: block;
-    border: 1px solid #ccc;
+    border: none;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .dropdown-menu li a:hover {
-    background-color: #f4f4f4;
+    background-color: #E6FCFA;
+    color: #13b6b0; /* texte cyan plus foncé au survol */
 }
 
 /* Home Section */
@@ -152,11 +161,11 @@ header {
 
 /* Latest Updates */
 .latest-updates {
-    width: 48%;
-    background-color: #B7B1EC;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #E6FCFA;
+    border-left: 4px solid #09E8D9;
+    padding: 16px;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
 .latest-updates h3 {
@@ -379,4 +388,16 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    section {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
+    .chatbot-container {
+        max-width: 98vw;
+        padding: 16px 4vw;
+    }
 }

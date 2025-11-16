@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" th:href="@{/styles.css}" href="styles.css">
 </head>
-<body>
 
-        <!-- Logo Image - Placed above the navbar -->
-        <div class="logo-container">
-            <img src="LogoBanner.jpg" alt="Hospital Management System Logo" class="logo-image">
-        </div>
-		<header>
+<body>
+    <!-- Logo Image - Placed above the navbar -->
+    <div class="logo-container">
+        <img th:src="@{/LogoBanner.jpg}" src="LogoBanner.jpg" alt="Hospital Management System Logo" class="logo-image">
+    </div>
+    <header>
         <!-- Navbar -->
         <nav class="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a th:href="@{/}" href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#location">Location</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -26,27 +27,27 @@
                 <li class="dropdown">
                     <a href="#">Login ▼</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/openAdminLogin">Admin</a></li>
-                        <li><a href="/openPatientLogin">Patient</a></li>
-                        <li><a href="/openDoctorLogin">Doctor</a></li>
-                        <li><a href="/openReceptionistLogIn">Receptionist</a></li>
+                        <li><a th:href="@{/openAdminLogin}" href="/openAdminLogin">Admin</a></li>
+                        <li><a th:href="@{/openPatientLogin}" href="/openPatientLogin">Patient</a></li>
+                        <li><a th:href="@{/openDoctorLogin}" href="/openDoctorLogin">Doctor</a></li>
+                        <li><a th:href="@{/openReceptionistLogIn}" href="/openReceptionistLogIn">Receptionist</a></li>
                     </ul>
                 </li>
                 <!-- Admin Dropdown -->
                 <li class="dropdown">
                     <a href="#">Admin ▼</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/addAdmin">Nouveau</a></li>
-                        <li><a href="/editAdmin">Modification</a></li>
-                        <li><a href="/listAdmins">Liste</a></li>
-                        <li><a href="/deleteAdmin">Suppression</a></li>
-                        <li><a href="/admin/razAttempts">Raz (debug)</a></li> <!-- Ajout Raz debug ici -->
+                        <li><a th:href="@{/addAdmin}" href="/addAdmin">Nouveau</a></li>
+                        <li><a th:href="@{/editAdmin}" href="/editAdmin">Modification</a></li>
+                        <li><a th:href="@{/listAdmins}" href="/listAdmins">Liste</a></li>
+                        <li><a th:href="@{/deleteAdmin}" href="/deleteAdmin">Suppression</a></li>
+                        <li><a th:href="@{/admin/razAttempts}" href="/admin/razAttempts">Raz (debug)</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
-    
+
     <!-- Home Section -->
     <section id="home">
         <div class="home-content">
@@ -55,15 +56,15 @@
                 <div class="slider">
                     <div class="slides">
                         <div class="slide">
-                            <img src="Slider1.jpg" alt="Welcome to Our Hospital">
+                            <img th:src="@{/Slider1.jpg}" src="Slider1.jpg" alt="Welcome to Our Hospital">
                         </div>
                         <div class="slide">
-                            <img src="Slider2.jpg" alt="Modern Facilities">
+                            <img th:src="@{/Slider2.jpg}" src="Slider2.jpg" alt="Modern Facilities">
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
                 <!-- Latest Updates -->
                 <div class="latest-updates">
                     <h3>Latest Updates</h3>
@@ -80,58 +81,76 @@
         <div class="info-block">
             <div class="director">
                 <h3>Director cum Vice-Chancellor</h3>
-                <img src="Doctor.jpg" alt="Director's Photo" class="director-photo">
+                <img th:src="@{/Doctor.jpg}" src="Doctor.jpg" alt="Director's Photo" class="director-photo">
                 <p>Dr. Manikanta Reddy, MBBS, MD (Internal Medicine), DM (Cardiology)</p>
             </div>
             <div class="welcome-hms">
-    <h3>Welcome to HMS</h3>
-    <p>At HMS, we are committed to providing the highest quality healthcare services to our patients. 
-    Our primary goal is to offer comprehensive and personalized care that meets the unique needs of each individual. 
-    We understand that healthcare is not just about treating illness but also about promoting overall well-being, 
-    and we strive to ensure that every patient feels cared for, valued, and supported throughout their journey 
-    with us.</p>
+                <h3>Welcome to HMS</h3>
+                <p>At HMS, we are committed to providing the highest quality healthcare services to our patients.
+                    Our primary goal is to offer comprehensive and personalized care that meets the unique needs of each
+                    individual.
+                    We understand that healthcare is not just about treating illness but also about promoting overall
+                    well-being,
+                    and we strive to ensure that every patient feels cared for, valued, and supported throughout their
+                    journey
+                    with us.</p>
 
-    <p>Our team consists of highly qualified and experienced doctors, nurses, and medical staff who are dedicated 
-    to providing exceptional care. From routine checkups to specialized treatments, we are equipped to handle a 
-    wide range of medical conditions. Our state-of-the-art facilities and advanced medical technology allow us 
-    to offer accurate diagnoses and effective treatments, all in a comfortable and welcoming environment.</p>
+                <p>Our team consists of highly qualified and experienced doctors, nurses, and medical staff who are
+                    dedicated
+                    to providing exceptional care. From routine checkups to specialized treatments, we are equipped to
+                    handle a
+                    wide range of medical conditions. Our state-of-the-art facilities and advanced medical technology
+                    allow us
+                    to offer accurate diagnoses and effective treatments, all in a comfortable and welcoming
+                    environment.</p>
 
-    <p>We believe in a patient-centered approach to healthcare. This means that we prioritize your needs, 
-    listen to your concerns, and work with you to develop a treatment plan that is tailored to your specific 
-    health goals. Whether you're here for a simple consultation or require more complex medical attention, 
-    our staff is here to guide you every step of the way, ensuring that you have all the information and support 
-    you need to make informed decisions about your health.</p>
+                <p>We believe in a patient-centered approach to healthcare. This means that we prioritize your needs,
+                    listen to your concerns, and work with you to develop a treatment plan that is tailored to your
+                    specific
+                    health goals. Whether you're here for a simple consultation or require more complex medical
+                    attention,
+                    our staff is here to guide you every step of the way, ensuring that you have all the information
+                    and support
+                    you need to make informed decisions about your health.</p>
 
-    <p>At HMS, we are more than just a hospital – we are a community of healthcare professionals and 
-    patients working together to foster a healthier future. Our commitment to excellence and compassionate 
-    care is at the heart of everything we do, and we are proud to be a trusted healthcare provider in the 
-    community.</p>
+                <p>At HMS, we are more than just a hospital – we are a community of healthcare professionals and
+                    patients working together to foster a healthier future. Our commitment to excellence and
+                    compassionate
+                    care is at the heart of everything we do, and we are proud to be a trusted healthcare provider in
+                    the
+                    community.</p>
 
-    <p>We look forward to partnering with you on your healthcare journey and providing the care you deserve. 
-    Welcome to HMS, where your health is our priority!</p>
-</div>
-
+                <p>We look forward to partnering with you on your healthcare journey and providing the care you
+                    deserve.
+                    Welcome to HMS, where your health is our priority!</p>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <h3>About HMS</h3>
-        <p>HMS is a state-of-the-art healthcare facility dedicated to providing the best medical care to individuals and families. We offer a wide range of services, from primary care to advanced surgeries, to ensure that all our patients receive top-notch treatment. Our hospital prides itself on its professional medical staff and cutting-edge technology.</p>
+        <p>HMS is a state-of-the-art healthcare facility dedicated to providing the best medical care to
+            individuals and families. We offer a wide range of services, from primary care to advanced surgeries, to
+            ensure that all our patients receive top-notch treatment. Our hospital prides itself on its professional
+            medical staff and cutting-edge technology.</p>
     </section>
 
     <!-- Location Section -->
     <section id="location">
         <h3>Our Location</h3>
-        <p>Our hospital is located at a central and accessible location to serve the community better. We are committed to making healthcare available to everyone. Below is our hospital address and contact information.</p>
+        <p>Our hospital is located at a central and accessible location to serve the community better. We are
+            committed to making healthcare available to everyone. Below is our hospital address and contact
+            information.</p>
         <p>123 Health St., City Name, Country</p>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h3>Contact Us</h3>
-        <p>If you have any inquiries, feel free to get in touch with us. Our team is available to answer your questions and assist you in scheduling appointments.</p>
-        <form action="/submitContactForm" method="POST">
+        <p>If you have any inquiries, feel free to get in touch with us. Our team is available to answer your
+            questions and assist you in scheduling appointments.</p>
+        <form th:action="@{/submitContactForm}" action="/submitContactForm" method="POST">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -146,11 +165,11 @@
     </section>
 
     <!-- Doctor Suggestion Chatbot Section -->
-    <div class="chatbot-container">
+    <div class="chatbot-container" id="doctor-chatbot">
         <h2>Doctor Suggestion Chatbot</h2>
         <p>Enter your symptoms below to get doctor suggestions:</p>
-        
-        <form action="/getDoctorSuggestion" method="post">
+
+        <form th:action="@{/getDoctorSuggestion}" action="/getDoctorSuggestion" method="post">
             <textarea name="symptoms" rows="4" placeholder="Enter your symptoms..."></textarea>
             <button type="submit">Get Suggestion</button>
         </form>
@@ -160,6 +179,6 @@
             <p th:text="${suggestion}">Your doctor suggestion will appear here.</p>
         </div>
     </div>
-
 </body>
+
 </html>

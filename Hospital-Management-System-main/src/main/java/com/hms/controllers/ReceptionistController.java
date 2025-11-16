@@ -1,4 +1,4 @@
-package com.hms.controllers;
+ package com.hms.controllers;
 
 import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,21 +45,16 @@ public class ReceptionistController {
     public String login(
             @RequestParam("email") String email,
             @RequestParam("password") String password,
-            Model model,HttpSession session) {
+            Model model, HttpSession session) {
 
-        
         Receptionist receptionist = receptionistService.getReceptionistByEmail(email);
-        
-        session.setAttribute("receptionist", receptionist);
 
-        
         if (receptionist != null && receptionist.getPassword().equals(password)) {
-            
-            return "receptionistDashboard"; 
+            session.setAttribute("receptionist", receptionist);
+            return "receptionistDashboard";
         } else {
-            
             model.addAttribute("error", "Invalid email or password. Please try again.");
-            return "login";  
+            return "receptionistLogin"; // Correction du nom du template
         }
     }
     

@@ -15,6 +15,12 @@ public class ReceptionistServiceImplementation implements ReceptionistService {
 
     @Autowired
     private ReceptionistRepository receptionistRepository;
+    
+    @Autowired
+    private PasswordService passwordService;
+
+    @Autowired
+    private EmailValidatorService emailValidatorService;
 
     @Override
     public Receptionist saveReceptionist(Receptionist receptionist) {
@@ -60,5 +66,16 @@ public class ReceptionistServiceImplementation implements ReceptionistService {
         }
         return false;
     }
-
+    
+    // Exemple de méthode d'enregistrement avec validation
+    public boolean registerReceptionist(Receptionist receptionist) {
+        // Validation de l'email
+        return (emailValidatorService.validate(receptionist.getEmail()))
+        // Validation du mot de passe
+        if (!passwordService.isStrong(receptionist.getPassword())) {
+            return false;
+        }
+        // ...enregistrement en base (à compléter selon la logique du projet)...
+        return true;
+    }
 }
