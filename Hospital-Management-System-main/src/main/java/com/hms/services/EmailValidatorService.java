@@ -12,5 +12,6 @@ public class EmailValidatorService {
         if (email == null || !Pattern.matches(EMAIL_REGEX, email)) {
             throw new InvalidEmailFormatException("Format email invalide");
         }
+        return true;
     }
 }

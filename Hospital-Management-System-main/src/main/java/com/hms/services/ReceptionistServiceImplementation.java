@@ -69,10 +69,13 @@ public class ReceptionistServiceImplementation implements ReceptionistService {
     
     // Exemple de méthode d'enregistrement avec validation
     public boolean registerReceptionist(Receptionist receptionist) {
+    	
         // Validation de l'email
-        return (emailValidatorService.validate(receptionist.getEmail()))
+        if (!emailValidatorService.validate(receptionist.getEmail())) {
+            return false;
+        }
         // Validation du mot de passe
-        if (!passwordService.isStrong(receptionist.getPassword())) {
+        if (!passwordService.isPasswordValidWithPassay(receptionist.getPassword())) {
             return false;
         }
         // ...enregistrement en base (à compléter selon la logique du projet)...

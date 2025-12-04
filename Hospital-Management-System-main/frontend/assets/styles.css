@@ -1,0 +1,52 @@
+/* Charte graphique médicale - bleu-vert bloc opératoire (#09E8D9) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E6FCFA; /* fond très clair, ambiance médicale */
+    color: #1B1833;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 15px 30px;
+    background-color: #09E8D9; /* couleur dominante */
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(9,232,217,0.08);
+}
+
+/* Logo Image */
+.logo-container {
+    text-align: center;
+    margin: 0px;
+    background: #09E8D9;
+    padding: 10px 0;
+}
+
+.logo-image {
+    max-width: 220px;
+    height: auto;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(9,232,217,0.12);
+}
+
+/* Navbar */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    /* ...suite du CSS... */
+}

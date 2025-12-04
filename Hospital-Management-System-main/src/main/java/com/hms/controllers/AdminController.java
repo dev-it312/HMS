@@ -31,9 +31,11 @@ public class AdminController {
         // Nombre max de tentatives
         final int MAX_ATTEMPTS = 3;
         Integer attempts = (Integer) session.getAttribute("adminLoginAttempts");
+        
+        // Initialysing attempts to zero
         if (attempts == null) attempts = 0;
 
-        // Si déjà bloqué
+        // If ATTEMPS locked
         if (attempts >= MAX_ATTEMPTS) {
             model.addAttribute("loginError", "Compte bloqué après 3 tentatives. Veuillez réessayer plus tard.");
             model.addAttribute("attemptsLeft", 0);
@@ -172,6 +174,4 @@ public class AdminController {
         model.addAttribute("message", "Compteur de tentatives réinitialisé.");
         return "redirect:/";
     }
-
-
 }

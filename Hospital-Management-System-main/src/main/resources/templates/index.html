@@ -1,39 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Management System</title>
     <link rel="stylesheet" th:href="@{/styles.css}" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            color: #222;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0 1rem 0;
+            background: #fff;
+        }
+        .logo-image {
+            max-width: 220px;
+            height: auto;
+        }
+        header {
+            background: #1976d2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar li {
+            position: relative;
+            margin: 0 1rem;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .navbar a:hover {
+            background: #1565c0;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 180px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .dropdown-menu li {
+            margin: 0;
+        }
+        .dropdown-menu a {
+            color: #1976d2;
+            background: none;
+            padding: 0.75rem 1rem;
+            display: block;
+        }
+        .dropdown-menu a:hover {
+            background: #e3f2fd;
+        }
+        @media (max-width: 800px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar li {
+                margin: 0.5rem 0;
+            }
+        }
+        .main-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            padding: 2rem;
+        }
+        .main-content h1 {
+            color: #1976d2;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .main-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .quick-access {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .quick-access a {
+            background: #1976d2;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .quick-access a:hover {
+            background: #1565c0;
+            transform: translateY(-2px) scale(1.04);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+            color: #888;
+            font-size: 1rem;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Logo Image - Placed above the navbar -->
     <div class="logo-container">
         <img th:src="@{/LogoBanner.jpg}" src="LogoBanner.jpg" alt="Hospital Management System Logo" class="logo-image">
     </div>
     <header>
-        <!-- Navbar -->
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/}" href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#location">Location</a></li>
+                <li><a th:href="@{/}" href="#">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#location">Localisation</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#doctor-chatbot">Doctor Suggestion Chatbot</a></li>
-
-                <!-- Login Dropdown -->
+                <li><a href="#doctor-chatbot">Chatbot Médecin</a></li>
                 <li class="dropdown">
-                    <a href="#">Login ▼</a>
+                    <a href="#">Connexion ▼</a>
                     <ul class="dropdown-menu">
                         <li><a th:href="@{/openAdminLogin}" href="/openAdminLogin">Admin</a></li>
                         <li><a th:href="@{/openPatientLogin}" href="/openPatientLogin">Patient</a></li>
-                        <li><a th:href="@{/openDoctorLogin}" href="/openDoctorLogin">Doctor</a></li>
-                        <li><a th:href="@{/openReceptionistLogIn}" href="/openReceptionistLogIn">Receptionist</a></li>
+                        <li><a th:href="@{/openDoctorLogin}" href="/openDoctorLogin">Médecin</a></li>
+                        <li><a th:href="@{/openReceptionistLogIn}" href="/openReceptionistLogIn">Réceptionniste</a></li>
                     </ul>
                 </li>
-                <!-- Admin Dropdown -->
                 <li class="dropdown">
                     <a href="#">Admin ▼</a>
                     <ul class="dropdown-menu">
@@ -47,138 +170,20 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Home Section -->
-    <section id="home">
-        <div class="home-content">
-            <div class="block1">
-                <!-- Slider -->
-                <div class="slider">
-                    <div class="slides">
-                        <div class="slide">
-                            <img th:src="@{/Slider1.jpg}" src="Slider1.jpg" alt="Welcome to Our Hospital">
-                        </div>
-                        <div class="slide">
-                            <img th:src="@{/Slider2.jpg}" src="Slider2.jpg" alt="Modern Facilities">
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Latest Updates -->
-                <div class="latest-updates">
-                    <h3>Latest Updates</h3>
-                    <div class="update-content">
-                        <p>Our hospital has recently upgraded its emergency services to provide faster care.</p>
-                        <p>We are launching a new health program for senior citizens starting next month.</p>
-                        <p>New state-of-the-art diagnostic equipment is now available for our patients.</p>
-                    </div>
-                </div>
-            </div>
+    <main class="main-content">
+        <h1>Bienvenue sur le système de gestion hospitalière</h1>
+        <p>Gérez facilement les patients, les rendez-vous, les médecins et le personnel. Accédez à toutes les fonctionnalités depuis cette page d’accueil moderne et intuitive.</p>
+        <div class="quick-access">
+            <a th:href="@{/openPatientLogin}" href="/openPatientLogin">Espace Patient</a>
+            <a th:href="@{/openDoctorLogin}" href="/openDoctorLogin">Espace Médecin</a>
+            <a th:href="@{/openReceptionistLogIn}" href="/openReceptionistLogIn">Espace Réceptionniste</a>
+            <a th:href="@{/openAdminLogin}" href="/openAdminLogin">Espace Admin</a>
+            <a th:href="@{/bookAppointmentByPatient}" href="/bookAppointmentByPatient">Prendre un rendez-vous</a>
+            <a th:href="@{/doctor-chatbot}" href="#doctor-chatbot">Chatbot Médecin</a>
         </div>
-
-        <!-- Director and Welcome to HMS Section -->
-        <div class="info-block">
-            <div class="director">
-                <h3>Director cum Vice-Chancellor</h3>
-                <img th:src="@{/Doctor.jpg}" src="Doctor.jpg" alt="Director's Photo" class="director-photo">
-                <p>Dr. Manikanta Reddy, MBBS, MD (Internal Medicine), DM (Cardiology)</p>
-            </div>
-            <div class="welcome-hms">
-                <h3>Welcome to HMS</h3>
-                <p>At HMS, we are committed to providing the highest quality healthcare services to our patients.
-                    Our primary goal is to offer comprehensive and personalized care that meets the unique needs of each
-                    individual.
-                    We understand that healthcare is not just about treating illness but also about promoting overall
-                    well-being,
-                    and we strive to ensure that every patient feels cared for, valued, and supported throughout their
-                    journey
-                    with us.</p>
-
-                <p>Our team consists of highly qualified and experienced doctors, nurses, and medical staff who are
-                    dedicated
-                    to providing exceptional care. From routine checkups to specialized treatments, we are equipped to
-                    handle a
-                    wide range of medical conditions. Our state-of-the-art facilities and advanced medical technology
-                    allow us
-                    to offer accurate diagnoses and effective treatments, all in a comfortable and welcoming
-                    environment.</p>
-
-                <p>We believe in a patient-centered approach to healthcare. This means that we prioritize your needs,
-                    listen to your concerns, and work with you to develop a treatment plan that is tailored to your
-                    specific
-                    health goals. Whether you're here for a simple consultation or require more complex medical
-                    attention,
-                    our staff is here to guide you every step of the way, ensuring that you have all the information
-                    and support
-                    you need to make informed decisions about your health.</p>
-
-                <p>At HMS, we are more than just a hospital – we are a community of healthcare professionals and
-                    patients working together to foster a healthier future. Our commitment to excellence and
-                    compassionate
-                    care is at the heart of everything we do, and we are proud to be a trusted healthcare provider in
-                    the
-                    community.</p>
-
-                <p>We look forward to partnering with you on your healthcare journey and providing the care you
-                    deserve.
-                    Welcome to HMS, where your health is our priority!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h3>About HMS</h3>
-        <p>HMS is a state-of-the-art healthcare facility dedicated to providing the best medical care to
-            individuals and families. We offer a wide range of services, from primary care to advanced surgeries, to
-            ensure that all our patients receive top-notch treatment. Our hospital prides itself on its professional
-            medical staff and cutting-edge technology.</p>
-    </section>
-
-    <!-- Location Section -->
-    <section id="location">
-        <h3>Our Location</h3>
-        <p>Our hospital is located at a central and accessible location to serve the community better. We are
-            committed to making healthcare available to everyone. Below is our hospital address and contact
-            information.</p>
-        <p>123 Health St., City Name, Country</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h3>Contact Us</h3>
-        <p>If you have any inquiries, feel free to get in touch with us. Our team is available to answer your
-            questions and assist you in scheduling appointments.</p>
-        <form th:action="@{/submitContactForm}" action="/submitContactForm" method="POST">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-
-    <!-- Doctor Suggestion Chatbot Section -->
-    <div class="chatbot-container" id="doctor-chatbot">
-        <h2>Doctor Suggestion Chatbot</h2>
-        <p>Enter your symptoms below to get doctor suggestions:</p>
-
-        <form th:action="@{/getDoctorSuggestion}" action="/getDoctorSuggestion" method="post">
-            <textarea name="symptoms" rows="4" placeholder="Enter your symptoms..."></textarea>
-            <button type="submit">Get Suggestion</button>
-        </form>
-
-        <div class="response">
-            <h3>Suggestion:</h3>
-            <p th:text="${suggestion}">Your doctor suggestion will appear here.</p>
-        </div>
-    </div>
+    </main>
+    <footer>
+        &copy; 2025 Hospital Management System. Tous droits réservés.
+    </footer>
 </body>
-
 </html>
