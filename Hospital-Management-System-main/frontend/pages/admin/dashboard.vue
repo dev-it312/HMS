@@ -6,7 +6,7 @@
       <li><NuxtLink to="/doctor-management">Doctor Management</NuxtLink></li>
       <li><NuxtLink to="/view-appointments">View Appointments</NuxtLink></li>
       <li><NuxtLink to="/reviews">Reviews</NuxtLink></li>
-      <li><NuxtLink to="/admin/logout">Log out</NuxtLink></li>
+      <li><NuxtLink to="/adminlogout">Logg out</NuxtLink></li>
     </ul>
   </div>
 </template>
@@ -16,5 +16,5 @@
 </script>
 
 <style scoped>
-/* Ajoutez ici le CSS spécifique à cette page si besoin */
+/* Vous pouvez ajouter des styles spécifiques ici ou utiliser le CSS global */
 </style>
