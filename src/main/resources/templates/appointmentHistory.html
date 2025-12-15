@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment History</title>
+    <link rel="stylesheet" href="appointmentHistory.css">
+</head>
+<body>
+<div class="container">
+    <h2>Appointment History</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="appointment : ${appointments}">
+                <td th:text="${appointment.id}"></td>
+                <td th:text="${appointment.appointmentDate}"></td>
+                <td th:text="${appointment.appointmentTime}"></td>
+                <td th:text="${appointment.reason}"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

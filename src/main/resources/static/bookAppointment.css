@@ -1,0 +1,168 @@
+/* General Reset */
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the viewport */
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Left Section: Check Doctor's Availability */
+.availability-section {
+    background: rgba(255, 255, 255, 0.8); /* Increased transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.availability-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.availability-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.availability-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.availability-section input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.availability-section button {
+    background-color: #1B1833;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.availability-section button:hover {
+    background-color: #0056b3;
+}
+
+/* Right Section: Book Appointment Form */
+.form-section {
+    background: rgba(255, 255, 255, 0.85); /* Increased transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 60%;
+}
+
+.form-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-section input, 
+.form-section select, 
+.form-section textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-section textarea {
+    resize: vertical;
+}
+
+.form-section button {
+    background-color: #1B1833;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-section button:hover {
+    background-color: #0056b3;
+}
+
+/* View Doctors List Section */
+.view-doctors-section {
+    background: rgba(255, 255, 255, 0.8); /* Increased transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.view-doctors-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.view-doctors-section button {
+    background-color: #1B1833;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.view-doctors-section button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .availability-section,
+    .form-section,
+    .view-doctors-section {
+        width: 100%;
+    }
+
+    .form-section h2 {
+        font-size: 20px;
+    }
+
+    .view-doctors-section h3 {
+        font-size: 18px;
+    }
+}

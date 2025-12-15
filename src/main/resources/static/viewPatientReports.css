@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns items to the top */
+    min-height: 100vh;
+    padding: 20px;
+    overflow: auto;
+    position: relative; /* Ensures proper positioning for absolute container */
+}
+
+/* Reports Container */
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Transparent white background for readability */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Increased max-width for larger content */
+    width: 100%; /* Ensures content is responsive */
+    text-align: center;
+    position: absolute; /* Positioned relative to the body */
+    top: 50px; /* Moves the container to the top */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the container horizontally */
+}
+
+/* Heading styling */
+h2 {
+    font-size: 28px; /* Increased font size for emphasis */
+    color: #07074d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Report Item Styling */
+p {
+    font-size: 16px;
+    color: #536387;
+    margin: 10px 0;
+}
+
+strong {
+    font-weight: bold;
+    color: #07074d;
+}
+
+/* Image Styling */
+img {
+    max-width: 100%; /* Image scales with the container */
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* No reports message */
+p.no-reports {
+    font-size: 16px;
+    color: #ff4c4c;
+    font-style: italic;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #1B1833;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    img {
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Receptionist</title>
+    <link rel="stylesheet" href="remove.css">
+</head>
+<body>
+    <div class="remove-container">
+        <h2>Remove Receptionist</h2>
+        
+        <!-- Remove Receptionist Form -->
+        <form action="/removeReceptionist" method="POST">
+            <label for="receptionist-id">Enter Receptionist ID:</label>
+            <input type="number" id="receptionist-id" name="receptionist-id" placeholder="Receptionist ID" required>
+            <button type="submit">Remove Receptionist</button>
+        </form>
+        
+        <!-- Success or Error Messages -->
+        <div>
+            <p style="color: green;" th:if="${success}" th:text="${success}"></p>
+            <p style="color: red;" th:if="${error}" th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>

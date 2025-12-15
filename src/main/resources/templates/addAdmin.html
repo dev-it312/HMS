@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Nouveau</title>
+    <link rel="stylesheet" href="register.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background: #fff;
+            margin: 10% auto;
+            padding: 30px 20px 20px 20px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+            position: relative;
+        }
+        .modal-content img {
+            width: 48px; height: 48px; margin-bottom: 10px;
+        }
+        .modal-content button {
+            margin-top: 15px;
+            padding: 8px 24px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Créer un nouvel administrateur</h2>
+        <form method="post" action="/addAdmin" id="addAdminForm" autocomplete="off">
+            <label for="mailId">Email</label>
+            <input type="email" id="mailId" name="mailId" placeholder="Entrez l'email" required autofocus>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="Entrez le mot de passe" required>
+            <div class="button-row">
+                <button type="button" class="cancel-btn" onclick="window.location.href='/'">Annuler</button>
+                <button type="submit" class="login-btn">Créer</button>
+            </div>
+        </form>
+        <p class="error-message" th:text="${message}"></p>
+    </div>
+
+    <!-- Fenêtre modale d'erreur -->
+    <div id="errorModal" class="modal" th:if="${errorMessage}">
+        <div class="modal-content">
+            <img th:if="${errorType} == 'email-used'" src="/static/exclamation.png" alt="Erreur" />
+            <img th:if="${errorType} == 'invalid-email'" src="/static/at-barred.png" alt="Erreur email" />
+            <p th:text="${errorMessage}"></p>
+            <button onclick="closeModalAndFocus()">OK</button>
+        </div>
+    </div>
+
+    <script>
+    // Affichage de la modale si erreur
+    window.onload = function() {
+        var modal = document.getElementById('errorModal');
+        if (modal && modal.getAttribute('th:if') === null && modal.style.display !== 'none') {
+            modal.style.display = 'block';
+        }
+        // Validation côté client
+        document.getElementById('addAdminForm').onsubmit = function(e) {
+            var email = document.getElementById('mailId').value;
+            var emailRegex = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/;
+            if (!emailRegex.test(email)) {
+                showModal('invalid-email', 'Vous devez saisir une adresse email');
+                e.preventDefault();
+                return false;
+            }
+        };
+    };
+    function closeModalAndFocus() {
+        var modal = document.getElementById('errorModal');
+        if (modal) modal.style.display = 'none';
+        document.getElementById('mailId').focus();
+    }
+    function showModal(type, message) {
+        var modal = document.getElementById('errorModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'errorModal';
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+        }
+        var content = '<div class="modal-content">';
+        if (type === 'email-used')
+            content += '<img src="/static/exclamation.png" alt="Erreur" />';
+        else
+            content += '<img src="/static/at-barred.png" alt="Erreur email" />';
+        content += '<p>' + message + '</p>';
+        content += '<button onclick="closeModalAndFocus()">OK</button></div>';
+        modal.innerHTML = content;
+        modal.style.display = 'block';
+    }
+    </script>
+</body>
+</html>

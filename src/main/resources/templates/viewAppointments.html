@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>View Appointments</title>
+			<link rel="stylesheet" href="viewAppointments.css">
+		</head>
+		<body>
+			<!-- Middle Section: Check Doctor's Availability -->
+			        <div class="availability-section">
+			            <h3>View Appointments</h3>
+			            <form action="/viewAppointments" method="POST">
+			                <label for="doctor-id">Doctor ID:</label>
+			                <input type="number" id="doctor-id" name="doctor-id" required>
+			
+			                <label for="appointment-date">Date:</label>
+			                <input type="date" name="appointment-date" required>
+			
+			                <button type="submit">Check Availability</button>
+			            </form>
+			
+			            <div th:if="${appointments}">
+			                <h4>Booked Times (20-minute intervals):</h4>
+			                <ul>
+			                    <li th:each="appointment : ${appointments}">
+			                        <span th:text="${appointment.appointmentTime}"></span>
+			                    </li>
+			                </ul>
+			            </div>
+			        </div>
+		</body>
+	</html>
