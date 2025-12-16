@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book New Appointment</title>
+    <link rel="stylesheet" href="bookAppointment.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section: View Doctors List -->
+        <div class="view-doctors-section">
+            <h3>View Doctors List</h3>
+            <!-- Button to load the doctors list -->
+            <form action="/viewDoctorsList" method="GET">
+                <button type="submit">View All Doctors</button>
+            </form>
+
+            <!-- Display Doctors List in Table -->
+            <div th:if="${doctors}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Doctor ID</th>
+                            <th>Name</th>
+                            <th>Specialization</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="doctor : ${doctors}">
+                            <td th:text="${doctor.id}"></td>
+                            <td th:text="${doctor.name}"></td>
+                            <td th:text="${doctor.specialisation}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Middle Section: Check Doctor's Availability -->
+        <div class="availability-section">
+            <h3>Check Doctor's Availability</h3>
+            <form action="/checkAvailability" method="POST">
+                <label for="doctor-id">Doctor ID:</label>
+                <input type="number" id="doctor-id" name="doctor-id" required>
+
+                <label for="appointment-date">Date:</label>
+                <input type="date" name="appointment-date" required>
+
+                <button type="submit">Check Availability</button>
+            </form>
+
+            <div th:if="${appointments}">
+                <h4>Booked Times (20-minute intervals):</h4>
+                <ul>
+                    <li th:each="appointment : ${appointments}">
+                        <span th:text="${appointment.appointmentTime}"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Book Appointment Form -->
+        <!-- Book Appointment Section -->
+<div class="form-section">
+    <h2>Book Appointment</h2>
+    <form action="/bookAppointment" method="POST">
+        <!-- Doctor ID Field -->
+        <label for="doctor-id">Doctor ID:</label>
+        <input type="number" id="doctor-id" name="doctor-id" th:value="${doctorId}" required>
+        
+        <label for="patient-id">Patient ID:</label>
+        <input type="number" id="patient-id" name="patient-id" th:value="${patientId}" required>
+
+        <!-- Date Selection -->
+        <label for="appointment-date">Date:</label>
+        <input type="date" id="appointment-date" name="appointment-date" th:value="${appointmentDate}" required>
+
+        <!-- Time Input (Manual Time Entry) -->
+        <label for="appointment-time">Time:</label>
+        <input type="time" id="appointment-time" name="appointment-time" required>
+
+        <!-- Patient Full Name -->
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <!-- Phone Number -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <!-- Reason for Appointment -->
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="reason" required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Book Appointment</button>
+    </form>
+    <div>
+            <p style="color: green;" th:if="${message}" th:text="${message}"></p>
+            
+        </div>
+</div>
+		
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="viewPatientReports.css">
+	</head>
+	<body>
+		<div class="container">
+			<h2>Patient Reports</h2>
+			    <div>
+			        <div th:if="${allReports != null}" th:each="report : ${allReports}">
+			            <p><strong th:text="${report.fileName}"></strong> (<span th:text="${report.fileType}"></span>)</p>
+			            <img th:if="${report.patientReportsBase64}"
+			                 th:src="'data:image/jpeg;base64,' + ${report.patientReportsBase64}"
+			                 alt="Patient Report Image" />
+			        </div>
+			        <p th:if="${allReports == null || #lists.isEmpty(allReports)}">
+			            No reports available for this patient.
+			        </p>
+			    </div>
+			 </div>  
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Appointment</title>
+    <link rel="stylesheet" href="modifyAppointment.css">
+</head>
+<body>
+    <div class="modify-appointment-container">
+        <!-- Search Appointment -->
+        <h2>Search Appointment</h2>
+        <form action="/searchAppointmentByPatient" method="GET">
+            <label for="search-appointment-id">Enter Appointment ID:</label>
+            <input type="number" id="search-appointment-id" name="appointmentId" placeholder="Appointment ID" required>
+            <button type="submit">Search</button>
+        </form>
+        
+        <!-- Error Message -->
+        <div th:if="${error}">
+            <p style="color: red;" th:text="${error}"></p>
+        </div>
+
+        <!-- Modify Appointment Section -->
+        <div th:if="${appointment}">
+            <h2>Modify Appointment</h2>
+            <p>Current Appointment Details:</p>
+            <p>Patient ID: <strong th:text="${appointment.patientId}"></strong></p>
+            <p>Patient Name: <strong th:text="${appointment.patientName}"></strong></p>
+            <p>Phone Number: <strong th:text="${appointment.phoneNumber}"></strong></p>
+            <p>Appointment Date: <strong th:text="${appointment.appointmentDate}"></strong></p>
+            <p>Appointment Time: <strong th:text="${appointment.appointmentTime}"></strong></p>
+            <p>Reason: <strong th:text="${appointment.reason}"></strong></p>
+            
+            <!-- Change Doctor Form -->
+            <!-- Change Doctor Form -->
+			<h3>Change Doctor</h3>
+			<form action="/changeDoctorByPatient" method="POST">
+			    <input type="hidden" name="appointment-id" th:value="${appointment.id}">
+			    
+			    <label for="new-doctor-id">Enter New Doctor ID:</label>
+			    <input type="number" id="new-doctor-id" name="new-doctor-id" placeholder="Doctor ID" required>
+			    
+			    <button type="submit">Change Doctor</button>
+			</form>
+
+
+            <!-- Reschedule Appointment Form -->
+            <h3>Reschedule Appointment</h3>
+            <form action="/rescheduleAppointmentByPatient" method="POST">
+                <input type="hidden" name="appointment-id" th:value="${appointment.id}">
+                <label for="new-date">Select New Date:</label>
+                <input type="date" id="new-date" name="new-date" th:value="${appointment.appointmentDate}" required>
+                
+                <label for="new-time">Select New Time:</label>
+                <input type="time" id="new-time" name="new-time" th:value="${appointment.appointmentTime}" required>
+                
+                <button type="submit">Reschedule Appointment</button>
+            </form>
+
+            <!-- Cancel Appointment Form -->
+            <h3>Cancel Appointment</h3>
+            <form action="/cancelAppointmentByPatient" method="POST">
+                <input type="hidden" name="appointment-id" th:value="${appointment.id}">
+                <button type="submit">Cancel Appointment</button>
+            </form>
+        </div>
+
+        <p><a href="/appointmentDetails">Go back to appointment details</a></p>
+    </div>
+</body>
+</html>
