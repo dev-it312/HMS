@@ -3,8 +3,8 @@
     <h1>Hospital Management System - Frontend</h1>
     <p>Bienvenue — utilisez les liens ci-dessous pour accéder à l'interface.</p>
     <ul>
-      <li><NuxtLink to="/admin/dashboard">Admin Dashboard</NuxtLink></li>
-      <li><NuxtLink to="/admin/login">Admin Login</NuxtLink></li>
+      <li><NuxtLink to="/admin/dashboard">Admin - Dashboard</NuxtLink></li>
+      <li><NuxtLink to="/admin/login">Admin - Login</NuxtLink></li>
     </ul>
   </div>
 </template>
