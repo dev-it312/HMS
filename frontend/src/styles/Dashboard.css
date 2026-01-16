@@ -1,0 +1,42 @@
+.dashboard-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.dashboard-container h2 {
+  color: #1976d2;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.dashboard-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-container li {
+  margin: 1rem 0;
+}
+
+.dashboard-container a {
+  display: block;
+  background: #1976d2;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dashboard-container a:hover {
+  background: #1565c0;
+  transform: translateY(-2px);
+}

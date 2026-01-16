@@ -89,4 +89,81 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>with-frontend</id>
+			<build>
+				<plugins>
+					<!-- Plugin pour builder le frontend Nuxt et copier les assets dans resources/static -->
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>1.12.1</version>
+						<executions>
+							<!-- installer Node/npm localement -->
+							<execution>
+								<id>install-node-and-npm</id>
+								<goals>
+									<goal>install-node-and-npm</goal>
+								</goals>
+								<configuration>
+									<nodeVersion>v18.20.0</nodeVersion>
+									<npmVersion>9.7.2</npmVersion>
+								</configuration>
+							</execution>
+							<!-- installer les dépendances du frontend -->
+							<execution>
+								<id>npm-ci</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<phase>generate-resources</phase>
+								<configuration>
+									<arguments>ci</arguments>
+									<workingDirectory>frontend</workingDirectory>
+								</configuration>
+							</execution>
+							<!-- build Nuxt -->
+							<execution>
+								<id>npm-build</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<phase>generate-resources</phase>
+								<configuration>
+									<arguments>run build</arguments>
+									<workingDirectory>frontend</workingDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- Copier la sortie du build Nuxt (.output/public) vers les ressources statiques du backend -->
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>3.3.1</version>
+						<executions>
+							<execution>
+								<id>copy-frontend-to-static</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/frontend/.output/public</directory>
+											<filtering>false</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
