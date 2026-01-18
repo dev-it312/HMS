@@ -7,7 +7,7 @@ import '../styles/Home.css';
 const Home: React.FC = () => {
   return (
     <>
-      <h1>Bienvenue sur le système de gestion hospitalière</h1>
+      <h1>Bienvenu sur le système de gestion hospitalière</h1>
       <p>Gérez facilement les patients, les rendez-vous, les médecins et le personnel. Accédez à toutes les fonctionnalités depuis cette page d'accueil moderne et intuitive.</p>
       <div className="quick-access">
         <Link to="/login/patient">Espace Patient</Link>
