@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Layout from './components/Layout';
 import DashboardLayout from './components/DashboardLayout';
 
@@ -23,10 +24,11 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Routes with Header/Footer */}
-        <Route element={<Layout />}>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          {/* Routes with Header/Footer */}
+          <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/login/admin" element={<AdminLogin />} />
           <Route path="/login/doctor" element={<DoctorLogin />} />
@@ -52,7 +54,8 @@ function App() {
           <Route path="/receptionist/patient/add" element={<AddNewPatient />} />
         </Route>
       </Routes>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 }
 

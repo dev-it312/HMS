@@ -1,3 +1,99 @@
+:root {
+  /* Variables CSS pour le mode light (par défaut) */
+  --bg-primary: #f6f8fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --border-color: #e1e4e8;
+  
+  /* Header */
+  --header-bg: #1976d2;
+  --header-hover: #1565c0;
+  --header-text: #ffffff;
+  --header-logo-bg: #ffffff;
+  
+  /* Dropdown */
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #1976d2;
+  --dropdown-hover: #e3f2fd;
+  --dropdown-active: #bbdefb;
+  
+  /* Cards & Components */
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --button-primary: #1976d2;
+  --button-primary-hover: #1565c0;
+  --button-text: #ffffff;
+  
+  /* Links */
+  --link-color: #1976d2;
+  --link-hover: #1565c0;
+}
+
+[data-theme="dark"] {
+  /* Variables CSS pour le mode dark */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --border-color: #30363d;
+  
+  /* Header */
+  --header-bg: #1f2937;
+  --header-hover: #374151;
+  --header-text: #e6edf3;
+  --header-logo-bg: #161b22;
+  
+  /* Dropdown */
+  --dropdown-bg: #1f2937;
+  --dropdown-text: #60a5fa;
+  --dropdown-hover: #374151;
+  --dropdown-active: #1e3a8a;
+  
+  /* Cards & Components */
+  --card-bg: #161b22;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --button-primary: #2563eb;
+  --button-primary-hover: #1d4ed8;
+  --button-text: #ffffff;
+  
+  /* Links */
+  --link-color: #60a5fa;
+  --link-hover: #93c5fd;
+}
+
+[data-theme="high-contrast"] {
+  /* Variables CSS pour le mode high-contrast (couleurs vives) */
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #ffff00;
+  --border-color: #00ff00;
+  
+  /* Header */
+  --header-bg: #ff00ff;
+  --header-hover: #cc00cc;
+  --header-text: #ffffff;
+  --header-logo-bg: #000000;
+  
+  /* Dropdown */
+  --dropdown-bg: #1a1a1a;
+  --dropdown-text: #00ffff;
+  --dropdown-hover: #333333;
+  --dropdown-active: #ff00ff;
+  
+  /* Cards & Components */
+  --card-bg: #1a1a1a;
+  --card-shadow: rgba(255, 0, 255, 0.4);
+  --button-primary: #00ff00;
+  --button-primary-hover: #00cc00;
+  --button-text: #000000;
+  
+  /* Links */
+  --link-color: #00ffff;
+  --link-hover: #ffff00;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +102,11 @@
 
 body {
   font-family: 'Roboto', Arial, sans-serif;
-  background: #f6f8fa;
+  background: var(--bg-primary);
   margin: 0;
-  color: #222;
+  color: var(--text-primary);
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {

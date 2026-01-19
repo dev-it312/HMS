@@ -1,14 +1,15 @@
 .dashboard-container {
   max-width: 800px;
   margin: 2rem auto;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 16px var(--card-shadow);
   padding: 2rem;
+  transition: background-color 0.3s ease;
 }
 
 .dashboard-container h2 {
-  color: #1976d2;
+  color: var(--button-primary);
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -26,8 +27,8 @@
 
 .dashboard-container a {
   display: block;
-  background: #1976d2;
-  color: #fff;
+  background: var(--button-primary);
+  color: var(--button-text);
   padding: 1rem 1.5rem;
   border-radius: 6px;
   text-decoration: none;
@@ -37,6 +38,6 @@
 }
 
 .dashboard-container a:hover {
-  background: #1565c0;
+  background: var(--button-primary-hover);
   transform: translateY(-2px);
 }
