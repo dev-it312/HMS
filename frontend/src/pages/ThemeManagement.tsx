@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../contexts/ThemeContext';
 import ThemeEditor from '../components/ThemeEditor';
 import '../styles/ThemeManagement.css';
 
@@ -14,7 +13,6 @@ interface CustomTheme {
 
 const ThemeManagement: React.FC = () => {
   const navigate = useNavigate();
-  const { theme } = useTheme();
   const [customThemes, setCustomThemes] = useState<CustomTheme[]>(() => {
     const saved = localStorage.getItem('customThemes');
     return saved ? JSON.parse(saved) : [];
