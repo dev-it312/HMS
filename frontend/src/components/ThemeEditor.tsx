@@ -146,13 +146,13 @@ const ThemeEditor: React.FC<ThemeEditorProps> = ({ theme, onSave, onCancel, onDe
                   <input
                     type="color"
                     id={varName}
-                    value={variables[varName] || DEFAULT_VARIABLES[varName]}
+                    value={(variables as any)[varName] || (DEFAULT_VARIABLES as any)[varName]}
                     onChange={(e) => handleVariableChange(varName, e.target.value)}
                     className="color-picker"
                   />
                   <input
                     type="text"
-                    value={variables[varName] || DEFAULT_VARIABLES[varName]}
+                    value={(variables as any)[varName] || (DEFAULT_VARIABLES as any)[varName]}
                     onChange={(e) => handleVariableChange(varName, e.target.value)}
                     className="color-text-input"
                     placeholder="#000000"

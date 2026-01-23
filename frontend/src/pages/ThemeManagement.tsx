@@ -69,13 +69,13 @@ const ThemeManagement: React.FC = () => {
   };
 
   return (
-    <didiv className="theme-header-with-back">
+    <div className="theme-management-container">
+      <div className="theme-header-with-back">
         <h1>Gestion des Thèmes</h1>
         <button className="btn-back" onClick={() => navigate(-1)}>
           ← Retour
         </button>
-      </divment-container">
-      <h1>Gestion des Thèmes</h1>
+      </div>
       
       {!isCreating && !editingTheme ? (
         <div className="theme-list-view">
