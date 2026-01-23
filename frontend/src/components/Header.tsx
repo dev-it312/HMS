@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import '../styles/Header.css';
 
 const Header: React.FC = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
     <>
       <div className="logo-container">
@@ -33,6 +36,52 @@ const Header: React.FC = () => {
                 <li><Link to="/admin/list">Liste</Link></li>
                 <li><Link to="/admin/delete">Suppression</Link></li>
                 <li><Link to="/admin/razAttempts">Raz (debug)</Link></li>
+              </ul>
+            </li>
+            <li className="dropdown">
+              <a href="#">Paramètres ▼</a>
+              <ul className="dropdown-menu">
+                <li className="dropdown-submenu">
+                  <a href="#">Affichage ▸</a>
+                  <ul className="dropdown-submenu-content">
+                    <li className="dropdown-submenu">
+                      <a href="#">Thèmes ▸</a>
+                      <ul className="dropdown-submenu-content">
+                        <li>
+                          <a 
+                            href="#" 
+                            onClick={(e) => { e.preventDefault(); setTheme('light'); }}
+                            className={theme === 'light' ? 'active' : ''}
+                          >
+                            ☀️ Light Mode
+                          </a>
+                        </li>
+                        <li>
+                          <a 
+                            href="#" 
+                            onClick={(e) => { e.preventDefault(); setTheme('dark'); }}
+                            className={theme === 'dark' ? 'active' : ''}
+                          >
+                            🌙 Dark Mode
+                          </a>
+                        </li>
+                        <li>
+                          <a 
+                            href="#" 
+                            onClick={(e) => { e.preventDefault(); setTheme('high-contrast'); }}
+                            className={theme === 'high-contrast' ? 'active' : ''}
+                          >
+                            🎨 High Contrast
+                          </a>
+                        </li>
+                        <li className="separator"></li>
+                        <li>
+                          <Link to="/theme-management">⚙️ Theme Management</Link>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
           </ul>

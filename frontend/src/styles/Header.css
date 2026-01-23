@@ -88,7 +88,58 @@ header {
   position: relative;
 }
 
-.dropdown-submenu .submenu {
+.dropdown-submenu-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: var(--dropdown-bg);
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-radius: 4px;
+  z-index: 11;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-submenu:hover > .dropdown-submenu-content {
+  display: block;
+}
+
+.dropdown-submenu-content li {
+  margin: 0;
+}
+
+.dropdown-submenu-content a {
+  color: var(--dropdown-text);
+  background: none;
+  padding: 0.75rem 1rem;
+  display: block;
+}
+
+.dropdown-submenu-content a:hover {
+  background: var(--dropdown-hover);
+}
+
+.dropdown-submenu-content a.active {
+  background: var(--dropdown-active);
+  font-weight: 600;
+}
+
+.dropdown-submenu-content .separator {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.5rem 0;
+}
+
+.dropdown-submenu > a::after {
+  content: ' ▸';
+  float: right;
+  margin-left: 0.5rem;
+}
+
+.submenu {
   display: none;
   position: absolute;
   top: 0;

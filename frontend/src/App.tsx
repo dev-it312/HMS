@@ -19,6 +19,7 @@ import PatientManagement from './pages/PatientManagement';
 import AppointmentManagement from './pages/AppointmentManagement';
 import AddNewPatient from './pages/AddNewPatient';
 import AddNewDoctor from './pages/AddNewDoctor';
+import ThemeManagement from './pages/ThemeManagement';
 
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login/doctor" element={<DoctorLogin />} />
           <Route path="/login/patient" element={<PatientLogin />} />
           <Route path="/login/receptionist" element={<ReceptionistLogin />} />
+          <Route path="/theme-management" element={<ThemeManagement />} />
         </Route>
 
         {/* Dashboard Routes */}
