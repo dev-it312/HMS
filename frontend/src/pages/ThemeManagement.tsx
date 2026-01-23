@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import ThemeEditor from '../components/ThemeEditor';
 import '../styles/ThemeManagement.css';
@@ -12,6 +13,7 @@ interface CustomTheme {
 }
 
 const ThemeManagement: React.FC = () => {
+  const navigate = useNavigate();
   const { theme } = useTheme();
   const [customThemes, setCustomThemes] = useState<CustomTheme[]>(() => {
     const saved = localStorage.getItem('customThemes');
@@ -67,7 +69,12 @@ const ThemeManagement: React.FC = () => {
   };
 
   return (
-    <div className="theme-management-container">
+    <didiv className="theme-header-with-back">
+        <h1>Gestion des Thèmes</h1>
+        <button className="btn-back" onClick={() => navigate(-1)}>
+          ← Retour
+        </button>
+      </divment-container">
       <h1>Gestion des Thèmes</h1>
       
       {!isCreating && !editingTheme ? (

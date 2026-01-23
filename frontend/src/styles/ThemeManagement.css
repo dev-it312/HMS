@@ -7,10 +7,34 @@
   min-height: 100vh;
 }
 
+.theme-header-with-back {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
 .theme-management-container h1 {
   color: var(--text-primary);
-  margin-bottom: 2rem;
+  margin: 0;
   font-size: 2rem;
+}
+
+.btn-back {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.btn-back:hover {
+  background-color: var(--dropdown-hover);
+  border-color: var(--button-primary);
 }
 
 .theme-list-view {
